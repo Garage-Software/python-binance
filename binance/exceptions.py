@@ -81,3 +81,16 @@ class BinanceWithdrawException(Exception):
 
     def __str__(self):
         return 'BinanceWithdrawException: %s' % self.message
+
+class NegativeRoundingException(Exception):
+    def __init__(self):
+        self.message = 'Digits to trim must be greater than or equal to zero'
+
+class InsufficientFundsException(Exception):
+    def __init__(self):
+        self.message = 'Budget must be greater than or equal to minimum transaction price\nQuantity must be greater ' \
+                       'than or equal to minimum transaction quantity'
+
+class DecimalRoundingException(Exception):
+    def __init__(self):
+        self.message = "Digits must be integers"
